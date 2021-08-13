@@ -84,5 +84,56 @@ orElseGet metodu Optional türde oluşturulan bir nesne için gerekli durumda ex
 ```ruby
 Optional<String> str = Optional.empty();
 System.out.println(str.orElseThrow(IllegalArgumentException::new));
+```
 
+## Stream() Method
+
+```ruby
+public Stream<T> stream()
+```
+Parametreler: Stream metodu herhangi bir parametre kabul etmez. <br />
+Dönüş Değeri: Stream metodu isteğe bağlı örnekte bulunan tek değerin sıralı akışını döndürür. Bu İsteğe bağlı örnekte hiçbir değer yoksa, bu yöntem boş bir Stream döndürür.
+
+Kod Parçacığı 1 :
+```ruby
+// Nesneyi Optional nesnesine dönüştürüyoruz
+        Optional<Integer> op = Optional.of(9455);
+  
+// Değeri ekrana yazdırıyoruz
+        System.out.println("Optional: " + op);
+  
+// Streami almak
+        System.out.println("Stream:");
+        op.stream().forEach(System.out::println);
+```
+Çıktı:
+```ruby
+Optional: Optional[123]
+Stream:
+123
+```
+
+Kod Parçacığı 2 :
+```ruby
+// Nesneyi Optional nesnesine dönüştürüyoruz
+        Optional<Integer> op = Optional.empty();
+  
+// Değeri ekrana yazdırıyoruz
+        System.out.println("Optional: " + op);
+  
+ try {
+  
+            // Streami almak
+            System.out.println("Stream: ");
+            op.stream().forEach(System.out::println);
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+
+```
+Çıktı:
+```ruby
+Optional: Optional.empty
+Stream: 
 ```
